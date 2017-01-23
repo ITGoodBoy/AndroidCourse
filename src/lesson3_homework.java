@@ -1,6 +1,7 @@
 import com.sun.xml.internal.fastinfoset.util.CharArray;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class lesson3_homework {
@@ -8,7 +9,8 @@ public class lesson3_homework {
     public static void main(String[] args) {
        // System.out.println(Arrays.toString(numbersOfFibanachy(20)));
        // whoFasterValueOfOrParse();
-        whoFasterValueOfOrQuotes();
+       // whoFasterValueOfOrQuotes();
+        System.out.println(Arrays.toString(vampires().toArray()));
     }
 
     private static int[] numbersOfFibanachy(int number)
@@ -65,6 +67,29 @@ public class lesson3_homework {
 
         float valueOfSpeed = (valueOfEnd - valueOfStart)/1000f;
         System.out.println("valueOf speed " + valueOfSpeed);
+    }
+
+    private static ArrayList<String> vampires()
+    {
+        String a;
+        ArrayList<String> list = new ArrayList<>();
+        for (int i = 10; i < 100; i++) {
+            for (int j = i; j < 100; j++) {
+                a = (i * j) + "";
+
+                char[] c = a.toCharArray();
+                char[] b = (i + "" + j).toCharArray();
+
+                Arrays.sort(c);
+                Arrays.sort(b);
+
+                if (Arrays.equals(c, b))
+                {
+                    list.add(a);
+                }
+            }
+        }
+        return list;
     }
 
 
