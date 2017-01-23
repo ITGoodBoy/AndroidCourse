@@ -8,9 +8,9 @@ public class lesson3_homework {
 
     public static void main(String[] args) {
        // System.out.println(Arrays.toString(numbersOfFibanachy(20)));
-       // whoFasterValueOfOrParse();
+        whoFasterValueOfOrParse();
        // whoFasterValueOfOrQuotes();
-        System.out.println(Arrays.toString(vampires().toArray()));
+       // System.out.println(Arrays.toString(vampires().toArray()));
     }
 
     private static int[] numbersOfFibanachy(int number)
@@ -28,23 +28,27 @@ public class lesson3_homework {
 
     private static void whoFasterValueOfOrParse()
     {
-        int time = 2017;
-
-        long parseIntStart = System.currentTimeMillis();
-        for (int i = 0; i < 10000000; i++) {
-            Integer.parseInt("2017");
-        }
-        long parseIntEnd = System.currentTimeMillis();
-        System.out.println("parseInt speed " + ((parseIntEnd - parseIntStart)/1000f));
-
-
         long valueOfStart = System.currentTimeMillis();
-        for (int i = 0; i < 10000000; i++) {
-         String.valueOf(time);
+        for (int i = 0; i < 1000000000; i++) {
+            for (int j = 0; j < 4; j++) {
+                Integer.valueOf("2017");
+            }
         }
         long valueOfEnd = System.currentTimeMillis();
-        System.out.println("valueOf speed " + (valueOfEnd - valueOfStart)/1000f);
+        float valueOfSpeed = (valueOfEnd - valueOfStart)/1000f;
+        System.out.println("valueOf speed " + valueOfSpeed);
 
+
+
+        long parseIntStart = System.currentTimeMillis();
+        for (int i = 0; i < 1000000000; i++) {
+            for (int j = 0; j < 4; j++) {
+                Integer.parseInt("2017");
+            }
+        }
+        long parseIntEnd = System.currentTimeMillis();
+        float parseIntSpeed = (parseIntEnd - parseIntStart)/1000f;
+        System.out.println("parseInt speed " + parseIntSpeed);
     }
 
     private static void whoFasterValueOfOrQuotes()
