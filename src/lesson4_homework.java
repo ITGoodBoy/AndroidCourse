@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * Created by Sergey on 06.02.2017.
  */
@@ -35,5 +37,24 @@ public class lesson4_homework {
             }
         }
         return map[y][x];
+    }
+
+    public static class Test {
+
+        public static void main(String[] args) {
+            String text = "";
+            while (true)
+            {
+                text = text + new Scanner(System.in).nextLine() + ",";
+                if (text.length() >= 5) {
+                    if (text.substring(text.length() - 5, text.length()).equals("exit,")) {
+                        text = text.substring(0, text.length() - 5);
+                        break;
+                    }
+                }
+            }
+            //System.out.println(Arrays.toString(new TreeSet<>(Arrays.asList(text.split(","))).toArray()));
+            //System.out.println(Arrays.toString(new PriorityQueue<>(Arrays.asList(text.split(","))).toArray()));
+        }
     }
 }
