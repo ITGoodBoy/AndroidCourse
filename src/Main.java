@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -71,7 +73,7 @@ public class Main {
 
     private static String myScannerMethodRemoveSpaces(String text){
         Scanner scanner = new Scanner(text);
-        ArrayList<String> list = new ArrayList<>();
+        List<String> list = new LinkedList<>();
         while (scanner.hasNext())
         {
             list.add(scanner.next() + " ");
