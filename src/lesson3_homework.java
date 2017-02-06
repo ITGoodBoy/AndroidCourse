@@ -3,12 +3,16 @@ import com.sun.xml.internal.fastinfoset.util.CharArray;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 public class lesson3_homework {
 
     public static void main(String[] args) {
        // System.out.println(Arrays.toString(numbersOfFibanachy(20)));
-        whoFasterValueOfOrParse();
+        for (int i = 0; i < 10000; i++) {
+            whoFasterValueOfOrParse();
+        }
+
        // whoFasterValueOfOrQuotes();
        // System.out.println(Arrays.toString(vampires().toArray()));
     }
@@ -28,10 +32,16 @@ public class lesson3_homework {
 
     private static void whoFasterValueOfOrParse()
     {
+        int max = 10000;
+        int min = 100;
+        String[] a = new String[1000000];
+        for (int i = 0; i < a.length; i++) {
+            a[i] = ((int)(Math.random() * (max - min)) * max) + "";
+        }
         long valueOfStart = System.currentTimeMillis();
-        for (int i = 0; i < 1000000000; i++) {
+        for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < 4; j++) {
-                Integer.valueOf("2017");
+                Integer.valueOf(a[i]);
             }
         }
         long valueOfEnd = System.currentTimeMillis();
@@ -41,9 +51,9 @@ public class lesson3_homework {
 
 
         long parseIntStart = System.currentTimeMillis();
-        for (int i = 0; i < 1000000000; i++) {
+        for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < 4; j++) {
-                Integer.parseInt("2017");
+                Integer.parseInt(a[i]);
             }
         }
         long parseIntEnd = System.currentTimeMillis();
